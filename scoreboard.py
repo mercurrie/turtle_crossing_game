@@ -1,13 +1,15 @@
 from turtle import Turtle
 POSITION = (-290, 260)
 FONT = ("Courier", 24, "normal")
+STARTING_SCORE = 0
+SCOREBOARD_COLOR = "black"
 
 
 class Scoreboard(Turtle):
     def __init__(self):
         super().__init__()
-        self.score = 0
-        self.color("black")
+        self.score = STARTING_SCORE
+        self.color(SCOREBOARD_COLOR)
         self.hideturtle()
         self.penup()
         self.goto(POSITION)

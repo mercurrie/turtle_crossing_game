@@ -8,6 +8,9 @@ CAR_WIDTH = 1
 CAR_LENGTH = 2
 Y_MIN = -280
 Y_MAX = 280
+RANDOM_INT_RANGE = (1, 6)
+CAR_SHAPE = "square"
+INT_TO_SPAWN_CAR = 1
 
 
 class CarManager:
@@ -17,9 +20,9 @@ class CarManager:
         self.car_speed = STARTING_MOVE_DISTANCE
 
     def create_car(self):
-        random_chance = random.randint(1, 6)
-        if random_chance == 1:
-            car = Turtle(shape="square")
+        random_chance = random.randint(RANDOM_INT_RANGE[0], RANDOM_INT_RANGE[1])
+        if random_chance == INT_TO_SPAWN_CAR:
+            car = Turtle(CAR_SHAPE)
             car.shapesize(CAR_WIDTH, CAR_LENGTH)
             car.penup()
             car.color(random.choice(COLORS))

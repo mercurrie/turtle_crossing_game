@@ -5,15 +5,17 @@ FINISH_LINE_Y = 280
 NORTH = 90
 EAST = 0
 WEST = 180
+TURTLE_SHAPE = "turtle"
+TURTLE_COLOR = "green"
 
 
 class Player(Turtle):
 
     def __init__(self):
         super().__init__()
-        self.shape("turtle")
+        self.shape(TURTLE_SHAPE)
         self.penup()
-        self.color("green")
+        self.color(TURTLE_COLOR)
         self.reset()
 
     def go_up(self):

@@ -7,26 +7,32 @@ SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 600
 FINISH_LINE = 280
 CAR_COLLISION = 20
+SLEEP_TIME = 0.1
+SCREEN_TITLE = "Turtle Crossing"
+UP_ARROW = "Up"
+RIGHT_ARROW = "Right"
+LEFT_ARROW = "Left"
+ANIMATION_OFF = 0
 
 
 def play_game():
     screen = Screen()
     screen.setup(SCREEN_WIDTH, SCREEN_HEIGHT)
-    screen.title("Turtle Crossing")
-    screen.tracer(0)
+    screen.title(SCREEN_TITLE)
+    screen.tracer(ANIMATION_OFF)
 
     turtle = Player()
     scoreboard = Scoreboard()
     car_manager = CarManager()
 
     screen.listen()
-    screen.onkey(turtle.go_up, "Up")
-    screen.onkey(turtle.go_left, "Left")
-    screen.onkey(turtle.go_right, "Right")
+    screen.onkey(turtle.go_up, UP_ARROW)
+    screen.onkey(turtle.go_left, LEFT_ARROW)
+    screen.onkey(turtle.go_right, RIGHT_ARROW)
 
     game_is_on = True
     while game_is_on:
-        time.sleep(0.1)
+        time.sleep(SLEEP_TIME)
         screen.update()
 
         car_manager.create_car()
